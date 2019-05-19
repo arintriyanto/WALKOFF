@@ -17,12 +17,9 @@ Original repo: https://github.com/frikky/nsacyber/walkoff.git
 
 Ensure that you have Docker and Docker Compose installed.
 
-Ensure that ports 6379 (Redis), 5432 (PostgreSQL), 5000 (Docker Registry), and 8080 (WALKOFF UI) are available, 
-or configuration will be needed.
-
 ```
 # Clone this repo & branch:
-git clone -b 1.0.0-alpha.1 https://github.com/nsacyber/walkoff.git
+git clone -b thehive-integration https://github.com/frikky/walkoff.git
 
 # Navigate to where the docker-compose.yml is:
 cd walkoff
@@ -33,8 +30,6 @@ docker swarm init
 # Build and launch the docker-compose (this will take a while):
 docker-compose up -d --build
 
-# Follow logs for services (append service names from the docker-compose.yml to follow specific services):
-docker-compose logs -f api_gateway
-
-# UI is viewable at http://localhost:8080
+# WALKOFF UI is viewable at http://localhost:8080 - login = admin/admin
+# TheHive UI is viewable at http://localhost:9000 - login = admin/admin
 ```
