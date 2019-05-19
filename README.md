@@ -1,25 +1,17 @@
-## 1.0 Update Overview
+# EDITS - @frikkylikeme
+These edits are here just for the purpose of making it easy to try this out. 
 
-WALKOFF 1.0 is intended to present a more robust and scalable implementation of Apps and Workers. 
-Due to the scale of the changes, this should be considered an alpha version of WALKOFF 1.0, and is for testing and 
-evaluation only. **There is much work to be done, and it is not stable, feature-complete or production-ready.**
+* Added thehive stack to docker-compose file with a db so everything is set up
+* Added webhook to the docker-compose based on the folder webhook/
+* Added the app TheHive to apps with configurations already finished
 
-In the coming weeks, we will be continually releasing bugfixes, documentation, and tests to bring this to a stable 
-state and begin adding non-core functionality. See [our roadmap](ROADMAP.md) for more details. You can also follow [the changelog](CHANGELOG.md) to keep up with the latest changes.
-
-If you do test this out, please submit issues here when you encounter any bugs or have any suggestions so we can 
-continue to improve the WALKOFF platform. 
-
-For app development instructions, see [the app SDK](app_sdk/README.md).
-
-If you would like to view version 0.9.4, see [the master branch](https://github.com/nsacyber/WALKOFF/tree/master). 
+Original repo: https://github.com/frikky/nsacyber/walkoff.git
 
 ## Requirements
 
 * Docker 18.06.0+: https://docs.docker.com/install/
 * Docker Compose 3+ (on Linux): https://docs.docker.com/compose/install/
     * Docker Desktop for Mac and Windows are already bundled with Docker Compose.
-    
 
 ## Installation
 
@@ -30,10 +22,10 @@ or configuration will be needed.
 
 ```
 # Clone this repo & branch:
-git clone -b 1.0.0-alpha.1 https://github.com/nsacyber/WALKOFF.git
+git clone -b 1.0.0-alpha.1 https://github.com/nsacyber/walkoff.git
 
 # Navigate to where the docker-compose.yml is:
-cd WALKOFF
+cd walkoff
 
 # Walkoff 1.0 makes use of Docker Swarm - initialize one now:
 docker swarm init
