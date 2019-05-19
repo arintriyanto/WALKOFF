@@ -15,7 +15,6 @@
 .ipynb_checkpoints/
 .vscode/
 __pycache__/
-apps/*
 backups/
 coverage.*
 data/*.db
