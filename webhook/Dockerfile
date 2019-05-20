@@ -4,6 +4,7 @@ RUN mkdir /app
 ADD walkoff-webhook.py /app/run.py
 
 ADD requirements.txt /app
+ADD *.json /app
 WORKDIR /app
 
 RUN pip3 install -r requirements.txt 

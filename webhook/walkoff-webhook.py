@@ -36,6 +36,19 @@ def get_workflows(headers):
 
     return ret
 
+def add_workflow(headers, data):
+    fullurl = "%s/workflows" % url
+    ret = requests.post(fullurl, headers=headers, json=data)
+
+    if ret.status_code != 201:
+        print(ret.text)
+        print(ret.status_code)
+        print("Exiting workflows - add workflow")
+        exit()
+
+    return ret
+
+
 def run_workflow(headers, data):
     fullurl = "%s/workflowqueue" % url
     ret = requests.post(fullurl, headers=headers, json=data)
@@ -91,7 +104,6 @@ def verify_complete(headers, workflow_ret):
     print("Used %d seconds to execute" % cnt*sleep)
     status = status.text
 
-
 def run_walkoff(input_variable, event):
     headers = {"Content-Type": "application/json"}
     access_token, refresh_token = get_access_token(headers)
@@ -101,6 +113,23 @@ def run_walkoff(input_variable, event):
     workflows = get_workflows(headers)
 
     executed = False
+    found = False
+    for item in workflows.json():
+        # Find the ID correlating first
+        if item["name"] != input_variable:
+            continue
+
+        found = True
+
+    if not found:
+        try:
+            with open("%s.json" % input_variable, "r") as tmp:
+                add_workflow(headers, json.load(tmp))
+        except FileNotFoundError:
+            print("No execution ready for WALKOFF at %s in %s." % (url, input_variable))
+            return
+
+    workflows = get_workflows(headers)
     for item in workflows.json():
         # Find the ID correlating first
         if item["name"] != input_variable:
