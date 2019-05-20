@@ -6,7 +6,7 @@ import time
 from thehive4py.api import TheHiveApi
 from thehive4py.models import Alert, AlertArtifact, CustomFieldHelper
 
-api = TheHiveApi('http://127.0.0.1:9000', 'IxNbHu15R1G/qOwjcl9i1PV00BID/XSI')
+api = TheHiveApi('http://127.0.0.1:9000', 'aDg1KrcRdOERKggu0RKno/EePxVAX5Is')
 artifacts = []
 
 def makealert(input_title):
