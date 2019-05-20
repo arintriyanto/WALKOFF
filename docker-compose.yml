@@ -1,3 +1,5 @@
+version: '3.5'
+services:
   dockerhost:
     image: qoomon/docker-host
     networks:
@@ -170,7 +172,7 @@
     networks:
       - walkoff_default
     ports:
-    - 9091:9091
+      - 9091:9091
 
 secrets:
   encryption_key:
