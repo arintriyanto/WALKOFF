@@ -60,7 +60,7 @@ services:
 #      REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
     volumes:
 #      - ./data/config.yml:/etc/docker/registry/config.yml
-      - /var/lib/boot2docker/registry:/var/lib/registry
+      - ./data/registry:/var/lib/registry
 #      - /var/lib/boot2docker:/certs
 #      - /var/lib/boot2docker/auth:/auth
 
@@ -98,7 +98,7 @@ services:
     networks:
       - walkoff_default
     volumes:
-      - /var/lib/boot2docker/redis:/data
+      - ./data/redis:/data
 
   postgres:
     container_name: postgres
@@ -114,7 +114,7 @@ services:
     networks:
       - walkoff_default
     volumes:
-      - /var/lib/boot2docker/postgresql/data:/var/lib/postgresql/data
+      - ./data/postgreqsql:/var/lib/postgresql/data
 
 networks:
   walkoff_default:

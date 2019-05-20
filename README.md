@@ -33,3 +33,23 @@ docker-compose up -d --build
 # WALKOFF UI is viewable at http://localhost:8080 - login = admin/admin
 # TheHive UI is viewable at http://localhost:9000 - login = admin/admin
 ```
+
+## TheHive integration testing
+```
+# Wait 4-5 minutes for the docker-compose to be up (builds 8 services) - numpy & crypto libraries are slow :)
+# Wait 2-3 minutes for app_sdk to build AFTER initial launch (used to build every app)
+
+# Enter the webhook repo
+# Run the alert creation test script
+python3 webhook/test-alert-create.py
+
+# This should have done the following:
+# 1. Created an alert in TheHive (localhost:9090)
+# 2. This triggered a webhook to the container walkoff_webhook_1
+# 3. The webhook changes and runs the workflow in AlertCreation 
+# 4. As the title contains "portscan", it should be changed based on the workflow
+
+```
+
+### Current issues
+* Not possible to run a lot of cuncurrent workflows. Seems to hang on container creation for some reason. It's still in alpha :)

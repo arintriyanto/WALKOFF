@@ -114,8 +114,8 @@ services:
       - 6379:6379
     networks:
       - walkoff_default
-#    volumes:
-#      - /var/lib/boot2docker/redis:/data
+    volumes:
+      - ./data/redis:/data
 
   postgres:
     container_name: postgres
